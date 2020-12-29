@@ -7,10 +7,40 @@ void pinChange()
   uint32_t tNow=micros();
 	uint32_t pulseLength=tNow-t0;
 	t0=tNow;
-  Serial.print(pulseLength);
-  Serial.print(" ");
-  Serial.print(pulseLevel);
-  Serial.print("\n");
+  //Serial.print(pulseLength);
+  //Serial.print(" ");
+  //Serial.print(pulseLevel);
+  //Serial.print("\n");
+	if (pulseLevel==0)
+	{
+		if (pulseLength>300 && pulseLength<600)
+		{
+  		Serial.print("0");
+		}
+		else if (pulseLength>1200 && pulseLength<2000)
+		{
+  		Serial.print("1");
+		}
+		else
+		{
+  		//Serial.print("Rx ");
+  		//Serial.println(pulseLength);
+  		Serial.print("\n");
+
+		}
+	}
+	else
+	{
+		if (pulseLength>500 && pulseLength<800)
+		{
+		}
+		else
+		{
+  		//Serial.print("Ry ");
+  		//Serial.println(pulseLength);
+		}
+	}
+
 }
 
 void setup()
